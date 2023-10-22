@@ -34,6 +34,10 @@ Embark on your development journey with a pre-configured Express application and
 
 Equipped with `jest` and `supertest`, this boilerplate supports both unit and e2e testing. Sample tests are included, but you can delve into the [Jest documentation](https://jestjs.io/docs/getting-started) to create tests as per your needs. A jest coverage report is included to keep track of your test coverages.
 
+### Environment Management
+
+Experience seamless development with `nodemon` and `babel`. The added environment utility ensures you never face issues with missing required environment variables; it notifies and stops execution if any are missing. Expand and manage your environment variables and controls by enhancing the `src/utils/environment.js`.
+
 ```js
 import ENV from 'environment'
 
@@ -42,10 +46,6 @@ if (ENV.isTest) {
   // Code specific to the test environment
 }
 ```
-
-### Environment Management
-
-Experience seamless development with `nodemon` and `babel`. The added environment utility ensures you never face issues with missing required environment variables; it notifies and stops execution if any are missing. Expand and manage your environment variables and controls by enhancing the `src/utils/environment.js`.
 
 ### Coding Style
 
