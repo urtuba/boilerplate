@@ -1,0 +1,38 @@
+{
+  "name": "boilerplate",
+  "version": "0.0.1",
+  "description": "Express boilerplate to start developing business logic with tests and environments.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/urtuba/boilerplate.git"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "api",
+    "babel",
+    "swagger",
+    "2023",
+    "nodemon",
+    "jest"
+  ],
+  "author": "urtuba",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/urtuba/boilerplate/issues"
+  },
+  "homepage": "https://github.com/urtuba/boilerplate#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.2",
+    "@babel/node": "^7.22.19",
+    "@babel/preset-env": "^7.23.2"
+  }
+}
