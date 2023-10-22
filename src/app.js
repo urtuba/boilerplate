@@ -1,8 +1,8 @@
-import express from "express"
+import express from 'express'
 
 const healthz = (app) => {
-  app.get("/healthz", (req, res) => {
-    res.status(200).send("OK")
+  app.get('/healthz', (req, res) => {
+    res.status(200).send('OK')
   })
 }
 
