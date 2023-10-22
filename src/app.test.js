@@ -28,5 +28,9 @@ describe('[express app]', () => {
 
     expect(res.statusCode).toEqual(200)
     expect(res.body.status).toEqual('OK')
+
+    const res2 = await request(app).get('/test')
+
+    expect(res2.statusCode).toEqual(404)
   })
 })
