@@ -12,6 +12,13 @@
   "coverageProvider": "v8",
   "coverageDirectory": "tmp/coverage",
   "collectCoverageFrom": ["<rootDir>/**/*.js", "<rootDir>/src"],
-  "coveragePathIgnorePatterns": ["/node_modules/", "/src/test/", "/src/server.js", "/src/db.js", "/src/test/"],
+  "coveragePathIgnorePatterns": [
+    "/node_modules/",
+    "/src/test/",
+    "/src/server.js",
+    "/src/db.js",
+    "/src/test/",
+    "src/middlewares"
+  ],
   "testTimeout": 10000
 }
