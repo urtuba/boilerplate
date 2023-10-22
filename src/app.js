@@ -2,7 +2,7 @@ import express from 'express'
 
 const healthz = (app) => {
   app.get('/healthz', (req, res) => {
-    res.status(200).send('OK')
+    res.status(200).send({ status: 'OK' })
   })
 }
 
