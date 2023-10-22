@@ -6,7 +6,7 @@ const healthz = (app) => {
   })
 }
 
-const buildApp = (additionalRoutesCallback = () => {}) => {
+const buildApp = (additionalRoutesCallback = (app) => {}) => {
   const app = express()
 
   additionalRoutesCallback?.(app)

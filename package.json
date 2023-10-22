@@ -28,7 +28,13 @@
   },
   "homepage": "https://github.com/urtuba/boilerplate#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "nanoid": "^5.0.2",
+    "request-ip": "^3.3.0",
+    "response-time": "^2.3.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.0",
