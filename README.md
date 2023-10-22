@@ -1,10 +1,58 @@
-# boilerplate
+# Enhanced Express API Boilerplate
 
-An Express api boilerplate to build any app from day 0. Minimal but complete.
+Elevate your application development experience with this enhanced Express API boilerplate. Designed to be both minimal and complete, it provides a solid foundation, streamlining your project right from the inception.
 
-## Use
+## Quick Start
 
-1. Fork repository to your GitHub.
-2. Run `npm install` to install dependencies.
-3. Run `npm run dev` to work with locally.
-4. Run `npm run test` to run tests.
+Follow these steps to get started:
+
+1. **Clone the Repository:**
+
+   - Clone this repository to your local machine to have your own version of the boilerplate. Use the command `git clone <repository-url>`.
+
+2. **Install Dependencies:**
+
+   - Execute `npm install` to install all the necessary dependencies to get you started.
+
+3. **Local Development:**
+
+   - Use `npm run dev` to start the local development server. It’s time to build something amazing!
+
+4. **Run Tests:**
+   - Make sure your code is robust and works as expected by running tests with `npm run test`.
+
+## Features
+
+### Express API
+
+Embark on your development journey with a pre-configured Express application and a server. The separation of the `buildApp` function ensures you test your app, not the 3rd party middlewares. It also offers additional configuration options, including:
+
+- Executing code after app creation but before the server starts.
+- Running another server instance with the same application.
+
+### Testing
+
+Equipped with `jest` and `supertest`, this boilerplate supports both unit and e2e testing. Sample tests are included, but you can delve into the [Jest documentation](https://jestjs.io/docs/getting-started) to create tests as per your needs. A jest coverage report is included to keep track of your test coverages.
+
+```js
+import ENV from 'environment'
+
+// Example usage
+if (ENV.isTest) {
+  // Code specific to the test environment
+}
+```
+
+### Environment Management
+
+Experience seamless development with `nodemon` and `babel`. The added environment utility ensures you never face issues with missing required environment variables; it notifies and stops execution if any are missing. Expand and manage your environment variables and controls by enhancing the `src/utils/environment.js`.
+
+### Coding Style
+
+Maintain a clean and consistent codebase with the enforced coding style powered by ESLint and Prettier. Ensure these extensions are installed in your VS Code:
+
+- ESLint
+- Prettier ESLint
+- Prettier - Code Formatter
+
+Feel free to update `.eslintrc` and `.prettierrc` to match your coding style preferences.
