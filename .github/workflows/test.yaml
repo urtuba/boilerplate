@@ -1,0 +1,38 @@
+---
+name: Test Workflow
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Test on Environment'
+        type: environment
+        required: true
+  pull_request:
+    types: [opened, synchronize]
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    name: Run tests
+    env:
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      NODE_OPTIONS: --max-old-space-size=4096
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Tests
+        run: npm run test
