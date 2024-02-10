@@ -1,4 +1,5 @@
 import express from 'express'
+import dummyRouter from './routers'
 
 const healthz = (app) => {
   app.get('/healthz', (req, res) => {
@@ -8,6 +9,8 @@ const healthz = (app) => {
 
 const buildApp = (additionalRoutesCallback = (app) => {}) => {
   const app = express()
+
+  app.use('/dummy', dummyRouter)
 
   additionalRoutesCallback?.(app)
   healthz(app)

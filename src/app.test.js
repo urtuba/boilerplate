@@ -2,14 +2,16 @@ import request from 'supertest'
 
 import buildApp from './app'
 
-describe('[express app]', () => {
-  let app = buildApp((app) => {
-    app.get('/test', (req, res) => {
-      res.status(200).send({ status: 'TEST' })
-    })
-  })
+describe('[ express app ]', () => {
+  let app
 
-  test('should start respond to the health check with additional routes callback.', async () => {
+  it('should start respond to the health check with additional routes callback.', async () => {
+    app = buildApp((app) => {
+      app.get('/test', (req, res) => {
+        res.status(200).send({ status: 'TEST' })
+      })
+    })
+
     const res = await request(app).get('/healthz')
 
     expect(res.statusCode).toEqual(200)
@@ -21,7 +23,7 @@ describe('[express app]', () => {
     expect(res2.body.status).toEqual('TEST')
   })
 
-  test('should start respond to the health check without additional routes callback.', async () => {
+  it('should start respond to the health check without additional routes callback.', async () => {
     app = buildApp()
 
     const res = await request(app).get('/healthz')
