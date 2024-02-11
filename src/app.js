@@ -1,6 +1,7 @@
 import express from 'express'
-import dummyRouter from './routers'
-import errorHandler from './middlewares/error-handler'
+
+import dummyRouter from 'routers'
+import errorHandler from 'middlewares/error-handler'
 
 const healthz = (app) => {
   app.get('/healthz', (req, res) => {
