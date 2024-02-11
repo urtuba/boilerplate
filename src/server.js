@@ -1,8 +1,8 @@
 import HTTP from 'http'
+import registerDefaultMiddlewares from 'middlewares/default'
+import ENV from 'utils/environment'
 
-import buildApp from './app.js'
-import ENV from './utils/environment.js'
-import registerDefaultMiddlewares from './middlewares/default.js'
+import buildApp from './app'
 
 ENV.control()
 
