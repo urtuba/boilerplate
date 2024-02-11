@@ -1,4 +1,6 @@
 import express from 'express'
+import dummyRouter from './routers'
+import errorHandler from './middlewares/error-handler'
 
 const healthz = (app) => {
   app.get('/healthz', (req, res) => {
@@ -9,8 +11,10 @@ const healthz = (app) => {
 const buildApp = (additionalRoutesCallback = (app) => {}) => {
   const app = express()
 
-  additionalRoutesCallback?.(app)
   healthz(app)
+  app.use('/dummy', dummyRouter)
+  app.use(errorHandler)
+  additionalRoutesCallback?.(app)
 
   return app
 }
