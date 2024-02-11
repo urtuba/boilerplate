@@ -5,6 +5,7 @@ export const sumHandler = (req, res, next) => {
 
   try {
     const result = sum(a, b)
+
     return res.status(200).json({ result })
   } catch (error) {
     return next(error)

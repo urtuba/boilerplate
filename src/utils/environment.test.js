@@ -1,13 +1,13 @@
 import ENV from './environment'
 
 describe('Environment', () => {
-  let OLD_ENV
+  const OLD_ENV = process.env
 
   beforeEach(() => {
-    OLD_ENV = process.env
+    process.env = { NODE_ENV: 'test' }
   })
 
-  afterEach(() => {
+  afterAll(() => {
     process.env = OLD_ENV
   })
 
@@ -51,7 +51,7 @@ describe('Environment', () => {
 
   test('should return true if all environments are set.', () => {
     process.env = {
-      NODE_ENV: 'test',
+      NODE_ENV: ' ',
       PORT: 3000,
       TEST: 'TEST',
     }

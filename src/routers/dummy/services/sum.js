@@ -3,11 +3,11 @@ export const sum = (a, b) => {
     throw new Error('a and b must be defined')
   }
 
-  if (typeof a !== 'number' || typeof b !== 'number') {
+  if (isNaN(a) || isNaN(b)) {
     throw new Error('a and b must be numbers')
   }
 
-  const result = a + b
+  const result = Number(a) + Number(b)
 
   return result.toFixed(2)
 }

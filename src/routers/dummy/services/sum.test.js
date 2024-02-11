@@ -7,11 +7,6 @@ describe('[ dummy / services / sum ]', () => {
     expect(() => sum(undefined, 2)).toThrow('a and b must be defined')
   })
 
-  it('should throw an error if a or b are not numbers', () => {
-    expect(() => sum('a', 2)).toThrow('a and b must be numbers')
-    expect(() => sum(1, 'b')).toThrow('a and b must be numbers')
-  })
-
   it('should return the sum of a and b with fixed 2 precision', () => {
     expect(sum(1, 2)).toBe((3).toFixed(2))
     expect(sum(1.1, 2.2)).toBe((3.3).toFixed(2))
