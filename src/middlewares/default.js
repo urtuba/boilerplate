@@ -3,7 +3,7 @@ import helmet from 'helmet'
 import bodyParser from 'body-parser'
 import responseTime from 'response-time'
 
-import requestId from './request-id.js'
+import requestId from './request-id'
 
 const registerDefaultMiddlewares = (app) => {
   app.use(requestId)
