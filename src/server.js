@@ -1,4 +1,4 @@
-import HTTP from 'http'
+import HTTP from 'node:http'
 import registerDefaultMiddlewares from 'middlewares/default'
 import ENV from 'utils/environment'
 

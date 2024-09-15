@@ -5,7 +5,7 @@ export const sum = (a, b) => {
     throw httpError(400, 'a and b must be defined')
   }
 
-  if (isNaN(a) || isNaN(b)) {
+  if (Number.isNaN(a) || Number.isNaN(b)) {
     throw httpError(429, 'a and b must be numbers')
   }
 

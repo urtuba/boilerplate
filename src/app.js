@@ -10,7 +10,7 @@ const healthz = (app) => {
   })
 }
 
-const buildApp = (additionalRoutesCallback = (app) => {}) => {
+const buildApp = (additionalRoutesCallback = (_app) => {}) => {
   const app = express()
 
   healthz(app)
