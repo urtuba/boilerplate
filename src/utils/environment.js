@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { cleanEnv, str, port } from 'envalid'
 
 const ENV = cleanEnv(process.env, {

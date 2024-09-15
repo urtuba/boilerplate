@@ -14,7 +14,9 @@ const buildApp = (additionalRoutesCallback = (app) => {}) => {
   const app = express()
 
   healthz(app)
+
   app.use(rateLimiter)
+
   app.use('/dummy', dummyRouter)
   app.use(errorHandler)
   additionalRoutesCallback?.(app)
