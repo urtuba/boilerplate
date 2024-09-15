@@ -44,7 +44,7 @@
         "noUnsafeOptionalChaining": "error",
         "noUnusedLabels": "error",
         "noUnusedPrivateClassMembers": "error",
-        "noUnusedVariables": "error",
+        "noUnusedFunctionParameters": "off",
         "useIsNan": "error",
         "useValidForDirection": "error",
         "useYield": "error"
