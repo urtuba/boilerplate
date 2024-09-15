@@ -4,12 +4,10 @@ import ENV from 'utils/environment'
 
 import buildApp from './app'
 
-ENV.control()
-
 const app = buildApp(registerDefaultMiddlewares)
 
 const srv = HTTP.createServer(app)
 
-srv.listen(ENV.port, () => {
-  console.log(`SERVER ON: http://localhost:${ENV.port}/healthz`)
+srv.listen(ENV.PORT, () => {
+  console.log(`SERVER ON: http://localhost:${ENV.PORT}/healthz`)
 })
