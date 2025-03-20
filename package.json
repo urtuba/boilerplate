@@ -10,7 +10,8 @@
     "test": "jest --coverage --runInBand",
     "lint": "biome lint ./src",
     "lint:fix": "biome lint ./src --write",
-    "format": "biome format ./src --write"
+    "format": "biome format ./src --write",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -53,9 +54,10 @@
     "@babel/plugin-transform-class-properties": "^7.25.4",
     "@babel/plugin-transform-runtime": "^7.25.4",
     "@babel/preset-env": "^7.25.4",
-    "@biomejs/biome": "1.9.1",
+    "@biomejs/biome": "^1.9.1",
     "babel-plugin-module-resolver": "^5.0.2",
     "dotenv": "^16.4.5",
+    "husky": "^9.1.7",
     "jest": "^29.7.0",
     "nodemon": "^3.1.4",
     "supertest": "^6.3.4"

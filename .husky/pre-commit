@@ -1,0 +1,19 @@
+npm test
+
+npx biome check --apply-unsafe --no-errors-on-warnings --files-ignore-unknown=true .
+
+# Store the exit code
+EXIT_CODE=$?
+
+# Only block commit if there are errors (exit code 2)
+if [ $EXIT_CODE -eq 2 ]; then
+  echo "❌ Biome found errors in your code. Please fix them before committing."
+  exit 1
+fi
+
+# Allow commit even if there are warnings but warn the user
+if [ $EXIT_CODE -eq 1 ]; then
+  echo "⚠️ Biome found warnings in your code. Please check them before committing."
+fi
+
+exit 0
