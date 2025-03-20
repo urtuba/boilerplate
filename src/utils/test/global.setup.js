@@ -1,5 +1,10 @@
+import { db } from './db.setup'
+import setupEnv from './env.setup'
+
 const setup = async () => {
-  console.log('No JEST global setup is implemented for this project yet.')
+  setupEnv()
+
+  await db.connect()
 }
 
 export default setup

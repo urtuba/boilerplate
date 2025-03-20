@@ -1,3 +1,6 @@
+import { db } from './db.setup'
+
 export default async () => {
-  console.log('No JEST global teardown is implemented for this project yet.')
+  await db.clear()
+  await db.closeConnection()
 }
