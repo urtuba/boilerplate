@@ -1,7 +1,10 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.9.1/schema.json",
-  "vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": false },
-  "files": { "ignoreUnknown": true, "ignore": ["node_modules/*", "tmp/*"] },
+  "vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": true },
+  "files": {
+    "ignoreUnknown": true,
+    "ignore": ["node_modules/*", "tmp/*", "dist/*"]
+  },
   "formatter": {
     "enabled": true,
     "useEditorconfig": true,
@@ -77,7 +80,7 @@
         "useValidTypeof": "error"
       }
     },
-    "ignore": ["node_modules/*"]
+    "ignore": ["node_modules/*", "dist/*"]
   },
   "javascript": {
     "formatter": {

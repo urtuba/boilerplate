@@ -21,6 +21,23 @@ Follow these steps to get started:
 4. **Run Tests:**
    - Make sure your code is robust and works as expected by running tests with `npm run test`.
 
+## Docker Support
+
+This project includes Docker support for containerized deployment.
+
+### Building the Docker Image
+
+```bash
+# Build the Docker image
+docker build -t express-api .
+```
+
+### Running the Container
+
+```bash
+docker run -p 3000:3000 -e MONGO_URI=mongodb://localhost:27017/your_db_name express-api
+```
+
 ## Features
 
 ### Express API

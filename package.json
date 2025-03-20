@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/urtuba/boilerplate#readme",
   "dependencies": {
+    "@babel/runtime": "^7.26.10",
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
     "envalid": "^8.0.0",
