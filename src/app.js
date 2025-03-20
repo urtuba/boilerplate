@@ -10,6 +10,7 @@ const healthz = (app) => {
   })
 }
 
+// biome-ignore lint/suspicious/noEmptyBlockStatements: <explanation>
 const buildApp = (additionalRoutesCallback = (_app) => {}) => {
   const app = express()
 
