@@ -1,6 +1,6 @@
+import bodyParser from 'body-parser'
 import cors from 'cors'
 import helmet from 'helmet'
-import bodyParser from 'body-parser'
 import responseTime from 'response-time'
 
 import requestId from './request-id'
