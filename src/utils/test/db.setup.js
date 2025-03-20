@@ -1,11 +1,25 @@
-const connect = async () => {}
+import mongoose from 'mongoose'
+import ENV from 'utils/environment'
 
-const closeConnection = async () => {}
+const connect = async () => {
+  if (mongoose.connection.readyState === 1) {
+    return
+  }
 
-const stop = async () => {}
+  await mongoose.connect(ENV.MONGO_URI)
+}
 
-const clear = async () => {}
+const closeConnection = async () => {
+  await mongoose.connection.close()
+}
 
-console.log('No JEST db setup is implemented for this project yet.')
+const clear = async () => {
+  const collections = mongoose.connection.collections
 
-export const db = { connect, stop, clear, closeConnection }
+  for (const key in collections) {
+    const collection = collections[key]
+    await collection.deleteMany()
+  }
+}
+
+export const db = { connect, clear, closeConnection }
