@@ -1,8 +1,8 @@
 import express from 'express'
 
-import dummyRouter from 'routers'
 import errorHandler from 'middlewares/error-handler'
 import rateLimiter from 'middlewares/rate-limiter'
+import dummyRouter from 'routers'
 
 const healthz = (app) => {
   app.get('/healthz', (req, res) => {

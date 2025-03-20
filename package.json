@@ -17,16 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/urtuba/boilerplate.git"
   },
-  "keywords": [
-    "express",
-    "node",
-    "api",
-    "babel",
-    "swagger",
-    "2023",
-    "nodemon",
-    "jest"
-  ],
+  "keywords": ["express", "node", "api", "babel", "swagger", "2023", "nodemon", "jest"],
   "author": "urtuba",
   "license": "MIT",
   "bugs": {
@@ -66,29 +57,17 @@
     "silent": true,
     "verbose": true,
     "rootDir": ".",
-    "roots": [
-      "./src"
-    ],
-    "transformIgnorePatterns": [
-      "/node_modules/",
-      "\\.pnp\\.[^\\/]+$"
-    ],
+    "roots": ["./src"],
+    "transformIgnorePatterns": ["/node_modules/", "\\.pnp\\.[^\\/]+$"],
     "testEnvironment": "node",
-    "setupFiles": [
-      "<rootDir>/src/utils/test/env.setup.js"
-    ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/src/utils/test/db.setup.js"
-    ],
+    "setupFiles": ["<rootDir>/src/utils/test/env.setup.js"],
+    "setupFilesAfterEnv": ["<rootDir>/src/utils/test/db.setup.js"],
     "globalSetup": "<rootDir>/src/utils/test/global.setup.js",
     "globalTeardown": "<rootDir>/src/utils/test/teardown.setup.js",
     "collectCoverage": true,
     "coverageProvider": "v8",
     "coverageDirectory": "tmp/coverage",
-    "collectCoverageFrom": [
-      "<rootDir>/**/*.js",
-      "<rootDir>/src"
-    ],
+    "collectCoverageFrom": ["<rootDir>/**/*.js", "<rootDir>/src"],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "/src/test/",
