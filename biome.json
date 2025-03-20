@@ -95,7 +95,10 @@
   "overrides": [
     {
       "include": ["src/**/*.test.js"],
-      "linter": { "enabled": false, "rules": { "style": { "noDoneCallback": "off" } } }
+      "linter": {
+        "enabled": false,
+        "rules": { "style": { "noDoneCallback": "off" } }
+      }
     }
   ]
 }
