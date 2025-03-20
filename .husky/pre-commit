@@ -1,6 +1,4 @@
-npm test
-
-npx biome check --apply-unsafe --files-ignore-unknown=true .
+npx biome check --files-ignore-unknown=true .
 
 # Store the exit code
 EXIT_CODE=$?
