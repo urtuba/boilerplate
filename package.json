@@ -11,6 +11,7 @@
     "lint": "biome lint ./src",
     "lint:fix": "biome lint ./src --write",
     "format": "biome format ./src --write",
+    "swagger:generate": "NODE_ENV=development node openapi-generate.js",
     "prepare": "husky"
   },
   "repository": {

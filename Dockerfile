@@ -1,18 +1,31 @@
+# syntax=docker/dockerfile:1.4
+
 # Build stage
 FROM node:22-alpine AS build
 
+# Create app directory
 WORKDIR /app
 
-# Copy package files and install dependencies
+# Set environment variables
+ARG NODE_ENV=development
+ENV NODE_ENV=${NODE_ENV}
+
+# Copy package files and install ALL dependencies (including devDependencies)
 COPY package*.json ./
-# Skip husky installation in Docker
-RUN npm pkg delete scripts.prepare && npm ci
+RUN --mount=type=cache,target=/root/.npm \
+    npm pkg delete scripts.prepare && \
+    npm ci
 
 # Copy source code
 COPY . .
 
-# Build the application
-RUN npm run build
+# Build the application & create swagger docs
+RUN npm run build && \
+    npm run swagger:generate
+
+# Remove dev dependencies and npmrc file
+RUN npm prune --production && \
+    rm -f .npmrc
 
 # Production stage
 FROM node:22-alpine AS production
@@ -23,15 +36,20 @@ ENV NODE_ENV=production
 WORKDIR /app
 
 # Copy package files and install only production dependencies
-COPY package*.json ./
-# Skip husky installation in Docker and use --omit=dev instead of --only=production
-RUN npm pkg delete scripts.prepare && npm ci --omit=dev
-
-# Copy built application from build stage
+# Copy production app from build stage
+COPY --from=build /app/package.json ./
+COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
+
+# Add non-root user for security
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+USER appuser
 
 # Expose the port the app runs on
 EXPOSE 3000
 
-# Command to run the application
-CMD ["node", "dist/server.js"] 
+# Use ENTRYPOINT to set the base command
+ENTRYPOINT ["node", "dist/server.js"]
+
+# Default command (can be overridden)
+CMD []

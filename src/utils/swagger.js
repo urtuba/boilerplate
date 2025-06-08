@@ -1,7 +1,7 @@
 import swaggerJsdoc from 'swagger-jsdoc'
 import swaggerUi from 'swagger-ui-express'
 
-const options = {
+export const options = {
   definition: {
     openapi: '3.0.0',
     info: {
@@ -16,7 +16,10 @@ const options = {
       }
     ]
   },
-  apis: ['./src/routers/**/*.js']
+  apis: [
+    process.env.NODE_ENV === 'production' ? './dist/routers/**/*.js' : './src/routers/**/*.js',
+    process.env.NODE_ENV === 'production' ? './dist/utils/swagger.js' : './src/utils/swagger.js'
+  ]
 }
 
 const specs = swaggerJsdoc(options)
@@ -24,3 +27,21 @@ const specs = swaggerJsdoc(options)
 export const setupSwagger = (app) => {
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs))
 }
+
+/**
+ * @swagger
+ * components:
+ *   securitySchemes:
+ *     xApiKey:
+ *       type: apiKey
+ *       in: header
+ *       name: x-api-key
+ *       description: API key for authentication
+ *     Error:
+ *       type: object
+ *       properties:
+ *         error:
+ *           type: string
+ *           description: Error message
+ *           example: Failed to check credit
+ */
