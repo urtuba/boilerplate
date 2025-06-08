@@ -1,6 +1,8 @@
 import { Router } from 'express'
 
+import { validateRequest } from 'middlewares/validate-request'
 import { sumHandler } from './handlers/sum'
+import { sumSchema } from './schemas/sum'
 
 const dummyRouter = Router()
 
@@ -54,6 +56,6 @@ const dummyRouter = Router()
  *                 message:
  *                   type: string
  */
-dummyRouter.get('/sum', sumHandler)
+dummyRouter.get('/sum', validateRequest(sumSchema, { validate: 'query' }), sumHandler)
 
 export default dummyRouter
