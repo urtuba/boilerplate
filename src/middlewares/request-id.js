@@ -7,7 +7,7 @@ const requestId = (req, res, next) => {
   req.id = id
   res.set('X-Request-Id', id)
 
-  next()
+  return next()
 }
 
 export default requestId
