@@ -22,28 +22,28 @@ describe('[express app]', () => {
     const res = await request(app).get(`${apiVersion}/dummy/sum`).query({ a: 1 })
 
     expect(res.statusCode).toEqual(400)
-    expect(res.body.error).toEqual('a and b must be defined')
+    expect(res.body.error).toEqual('"b" is required')
 
     const res2 = await request(app).get(`${apiVersion}/dummy/sum`).query({ b: 2 })
 
     expect(res2.statusCode).toEqual(400)
-    expect(res2.body.error).toEqual('a and b must be defined')
+    expect(res2.body.error).toEqual('"a" is required')
 
     const res3 = await request(app).get(`${apiVersion}/dummy/sum`)
 
     expect(res3.statusCode).toEqual(400)
-    expect(res3.body.error).toEqual('a and b must be defined')
+    expect(res3.body.error).toEqual('"a" is required')
   })
 
   it('should return error if arguments are not numbers', async () => {
     const res = await request(app).get(`${apiVersion}/dummy/sum`).query({ a: 'a', b: 2 })
 
-    expect(res.statusCode).toEqual(429)
-    expect(res.body.error).toEqual('a and b must be numbers')
+    expect(res.statusCode).toEqual(400)
+    expect(res.body.error).toEqual('"a" must be a number')
 
     const res2 = await request(app).get(`${apiVersion}/dummy/sum`).query({ a: 1, b: 'b' })
 
-    expect(res2.statusCode).toEqual(429)
-    expect(res2.body.error).toEqual('a and b must be numbers')
+    expect(res2.statusCode).toEqual(400)
+    expect(res2.body.error).toEqual('"b" must be a number')
   })
 })

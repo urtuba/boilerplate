@@ -6,7 +6,7 @@ export const sum = (a, b) => {
   }
 
   if (Number.isNaN(Number(a)) || Number.isNaN(Number(b))) {
-    throw httpError(429, 'a and b must be numbers')
+    throw httpError(422, 'a and b must be numbers')
   }
 
   const result = Number(a) + Number(b)
