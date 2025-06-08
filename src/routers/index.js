@@ -1,9 +1,7 @@
-import { Router } from 'express'
+import dummyRouter from './dummy'
 
-import { sumHandler } from './dummy/handlers/sum'
+const initRoutes = (app, rootPath = '/v1') => {
+  app.use(`${rootPath}/dummy`, dummyRouter)
+}
 
-const dummyRouter = Router()
-
-dummyRouter.get('/sum', sumHandler)
-
-export default dummyRouter
+export default initRoutes

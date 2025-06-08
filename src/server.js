@@ -3,9 +3,13 @@ import HTTP from 'node:http'
 import registerDefaultMiddlewares from 'middlewares/default'
 import ENV from 'utils/environment'
 
+import { setupSwagger } from 'utils/swagger'
 import buildApp from './app'
 
-const app = buildApp(registerDefaultMiddlewares)
+const app = buildApp((app) => {
+  registerDefaultMiddlewares(app)
+  setupSwagger(app)
+})
 
 const srv = HTTP.createServer(app)
 

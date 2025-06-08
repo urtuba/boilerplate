@@ -1,8 +1,7 @@
 import express from 'express'
 
 import errorHandler from 'middlewares/error-handler'
-import rateLimiter from 'middlewares/rate-limiter'
-import dummyRouter from 'routers'
+import initRoutes from 'routers'
 
 const healthz = (app) => {
   app.get('/healthz', (req, res) => {
@@ -13,15 +12,12 @@ const healthz = (app) => {
 // biome-ignore lint/suspicious/noEmptyBlockStatements: <explanation>
 const buildApp = (additionalRoutesCallback = (_app) => {}) => {
   const app = express()
-
-  healthz(app)
-
-  app.use(rateLimiter)
-
-  app.use('/dummy', dummyRouter)
-  app.use(errorHandler)
   additionalRoutesCallback?.(app)
 
+  healthz(app)
+  initRoutes(app, '/v1')
+
+  app.use(errorHandler)
   return app
 }
 
