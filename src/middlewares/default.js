@@ -14,6 +14,7 @@ const registerDefaultMiddlewares = (app) => {
   app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({ extended: true }))
   app.use(rateLimiter)
+  app.options('{*splat}', cors())
 }
 
 export default registerDefaultMiddlewares
