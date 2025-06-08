@@ -23,11 +23,14 @@ Follow these steps to get started:
 
 ## Docker Support
 
-This project includes Docker support for containerized deployment.
+This project includes Docker support for containerized deployment with modern best practices.
 
 ### Building the Docker Image
 
 ```bash
+# Enable BuildKit for faster builds
+export DOCKER_BUILDKIT=1
+
 # Build the Docker image
 docker build -t express-api .
 ```
@@ -35,8 +38,21 @@ docker build -t express-api .
 ### Running the Container
 
 ```bash
-docker run -p 3000:3000 -e MONGO_URI=mongodb://localhost:27017/your_db_name express-api
+# Basic run
+docker run -p 3000:3000 express-api
+
+# With environment variables
+docker run -p 3000:3000 -e NODE_ENV=production -e MONGO_URI=mongodb://localhost:27017/your_db_name express-api
+
+# With custom command arguments
+docker run -p 3000:3000 express-api --your-custom-args
 ```
+
+## Swagger Documentation
+
+The API documentation is available at `/api-docs` and is automatically configured based on the environment:
+- Development: Uses source files for real-time documentation updates
+- Production: Uses compiled files for optimized performance
 
 ## Features
 
